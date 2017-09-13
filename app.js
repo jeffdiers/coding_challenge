@@ -40,6 +40,8 @@ module.exports = function rankHand(hand) {
     let possible_straight = low_high.high_card_value - low_high.low_card_value === 4 ? true : false
     let flush = false
 
+    // console.log(duplicate_rank.length)
+
     for(suit in duplicate_suits) {
         if(duplicate_suits[suit] === 5) {
             flush = true
@@ -71,18 +73,21 @@ module.exports = function rankHand(hand) {
         return "Four of a Kind"
     } else if(three_kind === 1 && two_kind === 1) {
         return "Full House"
-    } else if(flush === true && possible_straight === true && low_high.high_card_rank === 'A') {
+    } else if(flush && possible_straight && low_high.high_card_rank === 'A') {
         return "Royal Flush"
-    } else if(flush === true && possible_straight === true) {
+    } else if(flush && possible_straight) {
         return "Straight Flush"
-    } else if(flush === true) {
+    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5' && flush) {
+        return "Straight Flush"
+    } else if(flush) {
         return renameCard(low_high.high_card_rank) + " High Flush"
-    } else if(possible_straight === true) {
+    } else if(possible_straight) {
         return renameCard(low_high.high_card_rank) + " High Straight"
+    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5') {
+        return "5 High Straight"
     } else {
         return renameCard(low_high.high_card_rank) + " High"
     }
     
 }
 
-// rankHand(['6s', '10c', '9d', '6d', '9c'])
