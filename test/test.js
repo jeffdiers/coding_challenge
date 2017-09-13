@@ -7,10 +7,11 @@ describe('Application', () => {
     assert.equal(rankHand(['2h', 'Ac', '10d', 'Qh', '4d']), 'Ace High');
     assert.equal(rankHand(['7h', '2c', '3d', '4h', '5d']), '7 High');
     assert.equal(rankHand(['2h', '3c', 'Jd', '4h', '8d']), 'Jack High');
+    assert.equal(rankHand(['2h', '3c', '5d', '10h', 'Ad']), 'Ace High');
   })
 
   it('should check for a pair', () => {
-    assert.equal(rankHand(['Ah', 'Ad', '7d', '5c', '2h']), 'Pair of Aces');
+    assert.equal(rankHand(['Ah', 'Ad', '7d', '5d', '2d']), 'Pair of Aces');
     assert.equal(rankHand(['Kh', 'Kd', '7d', '5c', '2h']), 'Pair of Kings');
     assert.equal(rankHand(['2h', '2d', '7d', '5c', '9h']), 'Pair of 2s');
     assert.equal(rankHand(['8h', '8d', '7d', '5c', '9h']), 'Pair of 8s');

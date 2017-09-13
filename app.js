@@ -82,10 +82,9 @@ module.exports = function rankHand(hand) {
         return high_card + " High Flush"
     } else if(possible_straight) {
         return high_card + " High Straight"
-    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5') {
+    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5' && !ranks.includes('10')) {
         return "5 High Straight"
     } else {
         return high_card + " High"
     }
-    
 }
