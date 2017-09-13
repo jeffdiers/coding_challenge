@@ -76,7 +76,7 @@ module.exports = function rankHand(hand) {
         return "Royal Flush"
     } else if(flush && possible_straight) {
         return "Straight Flush"
-    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5' && flush) {
+    } else if(low_high.high_card_rank === 'A' && ranks[3] === '5' && flush && !ranks.includes('10')) {
         return "Straight Flush"
     } else if(flush) {
         return high_card + " High Flush"

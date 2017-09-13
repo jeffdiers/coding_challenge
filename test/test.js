@@ -43,6 +43,7 @@ describe('Application', () => {
     assert.equal(rankHand(['5d', '4d', '9d', '10d', '2d']), '10 High Flush');
     assert.equal(rankHand(['5c', '4c', '9c', '3c', '2c']), '9 High Flush');
     assert.equal(rankHand(['5s', '4s', 'Js', '3s', '2s']), 'Jack High Flush');
+    assert.equal(rankHand(['5h', '4h', '9h', 'Ah', '10h']), 'Ace High Flush');
   })
 
   it('should check for full house', () => {
